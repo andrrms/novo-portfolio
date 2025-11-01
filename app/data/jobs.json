@@ -12,18 +12,23 @@
 				"title": "Desenvolvedor Full-stack Pleno",
 				"startDate": "2024-04-01",
 				"responsibilities": [
-					"Desenvolvimento de novas funcionalidades e manutenção de sistemas legados e modernos.",
-					"Resolução de anomalias técnicas para garantir a estabilidade operacional.",
-					"Suporte técnico para clientes, auxiliando em integrações com a API da empresa.",
-					"Integração de sistemas com APIs externas de parceiros, como Bradesco e BTG Pactual.",
-					"Planejamento e execução de Gerenciamento de Mudanças (GMUDs) nos sistemas."
+					"Liderança técnica do time de Melhoria Contínua e Anomalias, gerenciando e implementando aprimoramentos de qualidade de vida no sistema.",
+					"Resolução de anomalias críticas para clientes internos e externos.",
+					"Desenvolvimento de novas funcionalidades de acordo com documentação de requisitos e alinhamentos com a parte cliente.",
+					"Automação de processos internos utilizando Jenkins, Pipefy e Workato.",
+					"Criação e desenvolvimento de um projeto front-end moderno, portando funcionalidades do sistema legado."
 				],
 				"tags": [
+					"Vue.js",
+					"Nuxt.js",
+					"Pinia",
+					"TailwindCSS",
 					"PHP",
+					"Laravel",
 					"SQL",
 					"Redis",
-					"HTML",
-					"CSS",
+					"Websockets",
+					"Pipefy",
 					"JavaScript",
 					"Docker"
 				]
