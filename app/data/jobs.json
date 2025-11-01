@@ -1,0 +1,86 @@
+[
+	{
+		"company": {
+			"name": "Catálise Investimentos",
+			"website": "https://cataliseinvestimentos.com",
+			"logo": "logo-catalise.jpg",
+			"location": "Curitiba, PR (Remoto)",
+			"current": true
+		},
+		"positions": [
+			{
+				"title": "Desenvolvedor Full-stack Pleno",
+				"startDate": "2024-04-01",
+				"responsibilities": [
+					"Desenvolvimento de novas funcionalidades e manutenção de sistemas legados e modernos.",
+					"Resolução de anomalias técnicas para garantir a estabilidade operacional.",
+					"Suporte técnico para clientes, auxiliando em integrações com a API da empresa.",
+					"Integração de sistemas com APIs externas de parceiros, como Bradesco e BTG Pactual.",
+					"Planejamento e execução de Gerenciamento de Mudanças (GMUDs) nos sistemas."
+				],
+				"tags": [
+					"PHP",
+					"SQL",
+					"Redis",
+					"HTML",
+					"CSS",
+					"JavaScript",
+					"Docker"
+				]
+			},
+			{
+				"title": "Desenvolvedor Full-stack Júnior",
+				"startDate": "2023-04-01",
+				"endDate": "2024-04-01",
+				"responsibilities": [
+					"Desenvolvimento de novas funcionalidades e manutenção de sistemas legados e modernos.",
+					"Resolução de anomalias técnicas para garantir a estabilidade operacional.",
+					"Suporte técnico para clientes, auxiliando em integrações com a API da empresa.",
+					"Integração de sistemas com APIs externas de parceiros, como Bradesco e BTG Pactual.",
+					"Planejamento e execução de Gerenciamento de Mudanças (GMUDs) nos sistemas."
+				],
+				"tags": [
+					"PHP",
+					"SQL",
+					"Redis",
+					"HTML",
+					"CSS",
+					"JavaScript",
+					"Docker"
+				]
+			}
+		]
+	},
+	{
+		"company": {
+			"name": "Kenzie Academy Brasil",
+			"website": "https://www.kenzie.com.br/",
+			"logo": "logo-kenzie.jpg",
+			"location": "Remoto",
+			"current": false
+		},
+		"positions": [
+			{
+				"title": "Peer Coach (Monitoria)",
+				"icon": "material-symbols:work-outline",
+				"startDate": "2022-03-01",
+				"endDate": "2022-07-01",
+				"responsibilities": [
+					"Contato ativo com os alunos.",
+					"Correção das entregas e atividades.",
+					"Assistência no canal de dúvidas.",
+					"Relatórios sobre os alunos.",
+					"Aplicação de testes."
+				],
+				"tags": [
+					"JavaScript",
+					"Padrões de Projeto",
+					"Scrum",
+					"DOM",
+					"HTML",
+					"CSS"
+				]
+			}
+		]
+	}
+]

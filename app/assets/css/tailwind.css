@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+	--background: oklch(42.246% 0.06396 64.55);
+	--background-muted: oklch(37.531% 0.05935 64.232);
+	--foreground: oklch(93.302% 0.06033 79.104);
+	--foreground-muted: oklch(59.43% 0.09086 76.861);
+	--foreground-accent: oklch(69.943% 0.07624 78.957);
+	--primary: oklch(85.804% 0.11565 78.125);
+
+	/* --background: #264E66;
+	--background-muted: #1D4257;
+	--foreground: #BCE6FF;
+	--foreground-muted: #3B799D;
+	--foreground-accent: #679AB8;
+	--primary: #75C9FA; */
+
+	--pattern-foreground: color-mix(in oklab, var(--primary) 25%, transparent);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-background-muted: var(--background-muted);
+	--color-foreground: var(--foreground);
+	--color-foreground-muted: var(--foreground-muted);
+	--color-foreground-accent: var(--foreground-accent);
+	--color-primary: var(--primary);
+
+	--font-sans: 'Inter', sans-serif;
+	--font-mono: 'IBM Plex Mono', monospace;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: Inter, "IBM Plex Mono", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+	.bg-dotted {
+		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 25%, transparent);
+
+		background-color: var(--background);
+		background-image: radial-gradient(var(--pattern-foreground) 1px, transparent 0);
+		background-size: 10px 10px;
+	}
+
+	.bg-stripped {
+		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 56%, transparent);
+
+		background-color: var(--background);
+		background-image: repeating-linear-gradient(
+			315deg,
+			var(--pattern-foreground) 0,
+			var(--pattern-foreground) 1px,
+			transparent 0,
+			transparent 50%
+		);
+		background-size: 10px 10px;
+		background-position: center center;
+	}
+}
