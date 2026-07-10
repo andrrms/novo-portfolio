@@ -28,7 +28,7 @@ const endDate = computed(() => (
 </script>
 
 <template>
-  <UiCollapsibleCard class="flex flex-col pb-5 group-last-of-type:pb-0">
+  <UiCollapsibleCard :open="!position.endDate" class="flex flex-col pb-5 group-last-of-type:pb-0">
     <template #trigger>
       <div class="group/trigger w-full flex flex-col gap-1">
         <p class="text-primary text-lg font-medium group-hover/trigger:underline">{{ position.title }}</p>

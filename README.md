@@ -1,75 +1,35 @@
-# Nuxt Minimal Starter
+# Meu Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[Ver o site](https://www.asilveira.com.br/) · [Perfil no GitHub](https://github.com/andrrms)
 
-## Setup
+## Stack
 
-Make sure to install dependencies:
+- Nuxt 4 e Vue 3
+- Tailwind CSS 4
+- Nuxt Content, Icon, Image e Fonts
+
+## Desenvolvimento
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+O servidor local fica disponível em `http://localhost:3000`.
 
-Build the application for production:
+## Build
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Estrutura
+
+```text
+app/pages/       páginas do portfólio
+app/components/  interface e experiência profissional
+app/data/        conteúdo estruturado
+app/assets/      estilos e imagens
+content/         conteúdo do blog
+```

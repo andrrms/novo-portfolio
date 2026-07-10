@@ -1,20 +1,13 @@
 @import "tailwindcss";
 
 :root {
-	--background: oklch(42.246% 0.06396 64.55);
-	--background-muted: oklch(37.531% 0.05935 64.232);
-	--foreground: oklch(93.302% 0.06033 79.104);
-	--foreground-muted: oklch(59.43% 0.09086 76.861);
-	--foreground-accent: oklch(69.943% 0.07624 78.957);
-	--primary: oklch(85.804% 0.11565 78.125);
-
-	/* --background: #264E66;
-	--background-muted: #1D4257;
-	--foreground: #BCE6FF;
-	--foreground-muted: #3B799D;
-	--foreground-accent: #679AB8;
-	--primary: #75C9FA; */
-
+	--background: #07111f;
+	--background-muted: #0d1b2d;
+	--foreground: #edf6ff;
+	--foreground-muted: #91abc5;
+	--foreground-accent: #bfd0e2;
+	--primary: #62bdff;
+	--primary-soft: rgb(98 189 255 / 0.18);
 	--pattern-foreground: color-mix(in oklab, var(--primary) 25%, transparent);
 }
 
@@ -30,7 +23,12 @@
 	--font-mono: 'IBM Plex Mono', monospace;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
+	min-width: 320px;
 	background-color: var(--background);
 	color: var(--foreground);
 	font-family: Inter, "IBM Plex Mono", sans-serif;
@@ -38,27 +36,91 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+	background: var(--primary);
+	color: var(--background);
+}
+
+@layer components {
+	.nav-link {
+		@apply transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary;
+	}
+
+	.section-label {
+		@apply font-mono text-xs font-bold uppercase tracking-[0.16em] text-primary;
+	}
+
+	.section-title {
+		@apply mt-4 text-3xl font-bold leading-tight tracking-[-0.04em] text-foreground sm:text-4xl;
+	}
+
+	.project-card {
+		@apply overflow-hidden rounded-xl border border-foreground-muted/25 bg-background transition-colors hover:border-primary/45;
+	}
+
+	.project-visual {
+		@apply grid place-items-center overflow-hidden border-b border-foreground-muted/25 p-6;
+	}
+
+	.project-visual > div > div:first-child > span {
+		@apply h-2 w-2 rounded-full bg-foreground-muted/45;
+	}
+
+	.project-kicker {
+		@apply font-mono text-xs font-bold uppercase tracking-wider text-primary;
+	}
+
+	.tech-tag {
+		@apply rounded-full border border-foreground-muted/30 px-2.5 py-1 font-mono text-xs text-foreground-accent;
+	}
+
+	.skill-card {
+		@apply min-h-56 bg-background p-6;
+	}
+
+	.skill-card > span {
+		@apply font-mono text-xs text-primary;
+	}
+
+	.skill-card > h3 {
+		@apply mt-16 text-xl font-semibold text-foreground;
+	}
+
+	.skill-card > p {
+		@apply mt-3 text-sm leading-relaxed text-foreground-accent;
+	}
+}
+
 @layer utilities {
 	.bg-dotted {
 		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 25%, transparent);
-
 		background-color: var(--background);
 		background-image: radial-gradient(var(--pattern-foreground) 1px, transparent 0);
 		background-size: 10px 10px;
 	}
 
 	.bg-stripped {
-		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 56%, transparent);
-
+		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 35%, transparent);
 		background-color: var(--background);
-		background-image: repeating-linear-gradient(
-			315deg,
-			var(--pattern-foreground) 0,
-			var(--pattern-foreground) 1px,
-			transparent 0,
-			transparent 50%
-		);
+		background-image: repeating-linear-gradient(315deg, var(--pattern-foreground) 0, var(--pattern-foreground) 1px, transparent 0, transparent 50%);
 		background-size: 10px 10px;
-		background-position: center center;
+		background-position: center;
+	}
+}
+
+.terminal-cursor {
+	animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+	50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
 	}
 }

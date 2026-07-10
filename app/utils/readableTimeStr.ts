@@ -5,10 +5,9 @@
  * @returns String representando a diferença em anos e meses em pt-BR.
  */
 export default (firstDate: string, secondDate: string = new Date().toISOString()) => {
-  const start = new Date(firstDate);
-  const end = new Date(secondDate);
-
-  const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  const [startYear, startMonth] = firstDate.split('-').map(Number);
+  const [endYear, endMonth] = secondDate.split('-').map(Number);
+  const totalMonths = (endYear! - startYear!) * 12 + (endMonth! - startMonth!);
   const years = Math.floor(totalMonths / 12);
   const months = totalMonths % 12;
 

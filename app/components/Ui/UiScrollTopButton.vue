@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 const { y } = useWindowScroll();
+const preferredMotion = usePreferredReducedMotion();
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: preferredMotion.value === 'reduce' ? 'auto' : 'smooth' });
 }
 
 const isVisible = computed(() => y.value > 200);
@@ -12,9 +13,9 @@ const isVisible = computed(() => y.value > 200);
   <Transition name="scroll-button">
     <button
       v-if="isVisible"
+      class="fixed flex items-center justify-center bottom-5 right-5 bg-background-muted text-foreground border border-foreground-muted hover:bg-primary hover:text-background p-3 rounded-full aspect-square transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      aria-label="Voltar ao topo"
       @click="scrollToTop"
-      class="fixed flex items-center justify-center bottom-5 right-5 bg-background-muted text-foreground-muted border border-foreground-muted hover:bg-background-accent hover:text-foreground-accent p-3 rounded-full aspect-square transition-colors"
-      aria-label="Scroll to top"
     >
       <Icon name="material-symbols:arrow-upward-rounded" size="1.5em" />
     </button>

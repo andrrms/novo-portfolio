@@ -42,6 +42,7 @@ function toggle() {
       :id="contentId"
       role="region"
       :aria-labelledby="triggerId"
+			:aria-hidden="!isOpen"
       :class="['collapsible-wrapper mt-3', { 'is-open': isOpen }]"
     >
       <div class="collapsible-content">

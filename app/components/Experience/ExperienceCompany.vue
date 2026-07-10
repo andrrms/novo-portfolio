@@ -45,8 +45,7 @@ onMounted(() => {
 
 <template>
   <div class="flex items-center gap-3">
-    <img v-if="imageUrl" draggable="false" :src="imageUrl" alt="Logo Catálise Investimentos" class="h-8 w-8 rounded-full border-2 border-foreground-muted select-none" />
-    <!-- <NuxtImg draggable="false" src="/images/logo-catalise.jpg" alt="Logo Catálise Investimentos" class="h-8 w-8 rounded-full border-2 border-foreground-muted select-none" /> -->
+    <img v-if="imageUrl" draggable="false" :src="imageUrl" :alt="`Logo da ${company.name}`" class="h-8 w-8 rounded-full border-2 border-foreground-muted select-none" />
     <div class="flex flex-col">
       <div class="flex items-center gap-3">
         <h3 class="text-primary text-lg font-medium">{{ company.name }}</h3>
