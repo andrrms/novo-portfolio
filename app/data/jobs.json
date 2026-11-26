@@ -5,7 +5,8 @@
 			"website": "https://cataliseinvestimentos.com",
 			"logo": "logo-catalise.jpg",
 			"location": "Curitiba, PR (Remoto)",
-			"current": true
+			"current": true,
+			"jinx": "catálise? reação em cadeia. BUM!"
 		},
 		"positions": [
 			{
@@ -66,6 +67,7 @@
 			},
 			{
 				"title": "Desenvolvedor Full-stack Jr.",
+				"jinx": "Jr. = Jinx rulez",
 				"startDate": "2023-04-01",
 				"endDate": "2024-04-01",
 				"description": "Atuação generalista no desenvolvimento e sustentação dos sistemas da empresa, trabalhando em diferentes partes da aplicação e da operação conforme as necessidades do time.",

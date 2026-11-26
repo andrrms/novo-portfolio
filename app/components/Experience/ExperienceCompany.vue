@@ -7,6 +7,8 @@ interface Company {
   logo: string;
   location?: string;
   current: boolean;
+  /** Pichação do easter egg da luminária (UiUvMark) ao lado do nome, depois do selo "Atualmente". */
+  jinx?: string;
 }
 
 const props = defineProps<{
@@ -52,7 +54,10 @@ onMounted(() => {
     <!-- <NuxtImg draggable="false" src="/images/logo-catalise.jpg" alt="Logo Catálise Investimentos" class="h-8 w-8 rounded-full border-2 border-foreground-muted select-none" /> -->
     <div class="flex flex-col">
       <div class="flex items-center gap-3">
-        <h3 class="text-lg font-medium">{{ company.name }}</h3>
+        <h3 class="relative text-lg font-medium">
+          {{ company.name }}
+          <UiUvMark v-if="company.jinx" class="top-1/2 left-[calc(100%+7.5rem)] -translate-y-1/2 -rotate-4 font-hand text-2xl font-bold whitespace-nowrap text-uv-pink">{{ company.jinx }}</UiUvMark>
+        </h3>
         <UiChalkMark v-if="company.current" variant="circle" class="ms-1">
           <span class="bg-primary text-primary-foreground font-bold text-xs rounded-full px-1.5 py-0.5 select-none">Atualmente</span>
         </UiChalkMark>

@@ -53,8 +53,11 @@ export default defineNuxtConfig({
       weights: ['100 900'],
     },
     // Letra de mão da etiqueta da fita; aparece só dentro de um SVG e não é detectada sozinha.
+    // As outras duas são das pichações do easter egg da luminária (UiUvMark).
     families: [
       { name: 'Caveat', provider: 'google', weights: [500, 700] },
+      { name: 'Permanent Marker', provider: 'google', weights: [400] },
+      { name: 'Rubik Spray Paint', provider: 'google', weights: [400] },
     ],
   },
 });

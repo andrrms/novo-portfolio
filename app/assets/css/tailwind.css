@@ -37,6 +37,16 @@
 
 	--font-sans: 'Inter', sans-serif;
 	--font-mono: 'IBM Plex Mono', monospace;
+
+	/* Tinta UV das pichações (UiUvMark): cores que brilham sobre o escuro da luz apagada. */
+	--color-uv-pink: #FF3DA5;
+	--color-uv-cyan: #3DF5FF;
+	--color-uv-lime: #C8FF3D;
+	--color-uv-yellow: #FFE94A;
+	--color-uv-ink: #0D0620;
+	--font-hand: 'Caveat', cursive;
+	--font-marker: 'Permanent Marker', cursive;
+	--font-spray: 'Rubik Spray Paint', cursive;
 }
 
 ::selection {
@@ -80,6 +90,44 @@ body {
 		background-size: 10px 10px;
 		background-position: center center;
 	}
+}
+
+/*
+ * Easter egg da luminária (HomeLamp). Com a luz apagada, a página vira um quarto escuro: fundo quase
+ * preto e texto branco, para as pichações que zoam do texto continuarem legíveis; fotos, selos, fita,
+ * adesivos e o widget do Spotify só escurecem.
+ */
+html[data-lights="off"] {
+	--background: #100A24;
+	--background-muted: #0B0619;
+	--foreground: #FFFFFF;
+	--foreground-muted: #2B2350;
+	--foreground-accent: #E4E0F5;
+	--primary: #FFFFFF;
+	--primary-foreground: #100A24;
+	--pattern-dot: #241B47;
+}
+
+html[data-lights="off"] :is(iframe, .stamp, .cassette, .sticker, .cover),
+html[data-lights="off"] img:not(:is(.stamp, .cassette, .cover) img) {
+	filter: brightness(.35) saturate(.7);
+}
+
+/*
+ * Pichação em tinta UV (UiUvMark). Fica acima do conteúdo e da faixa 88×31 (z-10), mas abaixo da barra
+ * de cima (z-20). --uv é a intensidade da luz negra, de 0 a 1, que pisca enquanto o tubo acende.
+ */
+.uv-mark {
+	position: absolute;
+	z-index: 15;
+	pointer-events: none;
+	visibility: hidden;
+	opacity: var(--uv, 0);
+	filter: url(#uv-ink);
+}
+
+html[data-lights="off"] .uv-mark {
+	visibility: visible;
 }
 
 /* Texto vindo do Nuxt Content (blog e projetos). */

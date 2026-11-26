@@ -8,6 +8,8 @@ export interface Position {
   responsibilities?: string[];
   tags?: string[];
   icon?: string;
+  /** Pichação do easter egg da luminária (UiUvMark) ao lado do cargo. */
+  jinx?: string;
 }
 
 const props = defineProps<{

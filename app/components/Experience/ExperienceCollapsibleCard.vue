@@ -32,7 +32,12 @@ const endDate = computed(() => (
   <UiCollapsibleCard :default-open="defaultOpen" class="flex flex-col pb-5 group-last-of-type:pb-0">
     <template #trigger>
       <div class="group/trigger w-full flex flex-col gap-1">
-        <p class="text-lg font-medium group-hover/trigger:text-primary group-hover/trigger:underline">{{ position.title }}</p>
+        <p class="text-lg font-medium group-hover/trigger:text-primary group-hover/trigger:underline">
+          <span class="relative">
+            {{ position.title }}
+            <UiUvMark v-if="position.jinx" class="top-1/2 left-full ms-3 -translate-y-1/2 -rotate-3 font-marker text-base whitespace-nowrap text-uv-lime">{{ position.jinx }}</UiUvMark>
+          </span>
+        </p>
         <p class="text-foreground-accent text-sm">{{ startDate }} — {{ endDate }}</p>
       </div>
     </template>

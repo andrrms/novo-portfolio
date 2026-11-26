@@ -34,6 +34,23 @@ function warm() {
           <ProjectLogo :slug="project.slug" class="absolute top-4 left-4 w-8" :style="projectTransition(project.slug, 'logo')" />
         </div>
 
+        <!-- Pichações do easter egg da luminária, uma por projeto. -->
+        <UiUvMark v-if="project.slug === 'stalkr'" class="top-1 right-6 flex rotate-3 flex-col items-end">
+          <svg viewBox="0 0 60 24" class="w-16 overflow-visible text-uv-pink" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+            <path d="M4 22 C 4 6, 26 6, 26 22 M34 22 C 34 4, 58 4, 58 22" />
+            <path d="M15 19 a2 2 0 1 1 2 -2 a4 4 0 1 1 -4 4 M46 18 a2 2 0 1 1 2 -2 a4 4 0 1 1 -4 4" stroke="var(--color-uv-cyan)" stroke-width="1.8" />
+          </svg>
+          <span class="mt-1 font-marker text-base whitespace-nowrap text-uv-cyan [paint-order:stroke] [-webkit-text-stroke:4px_var(--color-uv-ink)]">tá me stalkeando, é?!</span>
+        </UiUvMark>
+        <UiUvMark v-else-if="project.slug === 'orla'" class="top-6 right-6 flex -rotate-4 items-center gap-1.5">
+          <span class="font-marker text-base leading-tight whitespace-nowrap text-uv-pink [paint-order:stroke] [-webkit-text-stroke:4px_var(--color-uv-ink)]">quanto dá pra<br>gastar em pólvora?</span>
+          <svg viewBox="0 0 30 34" class="w-8 overflow-visible" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="21" r="11" stroke="var(--color-uv-cyan)" stroke-width="2.4" />
+            <path d="M20 12 q 3 -6 7 -7" stroke="var(--color-uv-cyan)" stroke-width="2" />
+            <path d="M27 1 v3 M29.5 5 h-3 M25 3 l1.5 1.5" stroke="var(--color-uv-yellow)" stroke-width="1.8" />
+          </svg>
+        </UiUvMark>
+
         <div class="mt-3 flex items-baseline justify-between gap-3">
           <h3 class="text-lg font-medium" :style="projectTransition(project.slug, 'title')">
             <NuxtLink :to="project.path" class="link">{{ project.title }}</NuxtLink>
