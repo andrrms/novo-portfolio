@@ -37,6 +37,13 @@ export default defineNuxtConfig({
     lastfmUser: '',
   },
 
+  content: {
+    experimental: {
+      // node:sqlite em vez do better-sqlite3: a SquareCloud bloqueia scripts de instalação e o módulo nativo não compila.
+      sqliteConnector: 'native',
+    },
+  },
+
   fonts: {
     defaults: {
       weights: ['100 900'],
