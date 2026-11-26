@@ -45,7 +45,7 @@ const endDate = computed(() => (
         </li>
       </ul>
 
-      <UiTagList v-if="position.tags" :tags="position.tags" />
+      <UiTagList v-if="position.tags" :tags="position.tags" class="mt-2" />
     </div>
   </UiCollapsibleCard>
 </template>

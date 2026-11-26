@@ -19,34 +19,3 @@ const { data: content } = await useAsyncData(() => queryCollection('content').pa
   </div>
 </template>
 
-<style>
-@reference '~/assets/css/tailwind.css';
-
-.content-renderer {
-  @apply flex flex-col gap-4 text-foreground;
-}
-
-.content-renderer :is(h1, h2, h3, h4, h5, h6) {
-  scroll-margin-top: 5rem;
-}
-
-.content-renderer h1 {
-  @apply text-3xl font-extrabold font-mono;
-}
-
-.content-renderer p {
-  @apply leading-snug;
-}
-
-.content-renderer p img {
-  @apply mx-auto rounded-md;
-}
-
-.content-renderer pre {
-  @apply p-3 bg-background-muted rounded-md overflow-x-auto;
-}
-
-.content-renderer pre + :last-child {
-  margin-bottom: 0;
-}
-</style>

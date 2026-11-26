@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <ul v-if="tags.length" class="flex flex-wrap gap-2 mt-2">
+  <ul v-if="tags.length" class="flex flex-wrap gap-2">
     <li
       v-for="tag in tags"
       :key="tag"
