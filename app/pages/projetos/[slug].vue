@@ -16,11 +16,20 @@ if (!project.value) {
 
 useHead({ htmlAttrs: { 'data-project': IMMERSIVE ? slug : undefined } });
 
+const { siteUrl } = useRuntimeConfig().public;
+const url = `${siteUrl}/projetos/${slug}`;
+
 useSeoMeta({
   title: project.value.title,
   description: project.value.description,
-  ogImage: `${useRequestURL().origin}/projetos/${slug}.webp`,
+  ogTitle: project.value.title,
+  ogDescription: project.value.description,
+  ogType: 'article',
+  ogUrl: url,
+  ogImage: { url: `${siteUrl}/projetos/${slug}.jpg`, width: 1200, height: 630, alt: project.value.title },
 });
+
+useHead({ link: [{ rel: 'canonical', href: url }] });
 </script>
 
 <template>

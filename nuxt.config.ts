@@ -28,6 +28,13 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: 'pt-BR' },
+      meta: [
+        { name: 'theme-color', content: '#2438C6' },
+        { property: 'og:site_name', content: 'André Silveira' },
+        { property: 'og:locale', content: 'pt_BR' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
       link: [
         { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
         { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -39,6 +46,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     lastfmApiKey: '',
     lastfmUser: '',
+    public: {
+      // Base das URLs absolutas (canonical, og:image, sitemap). O app também responde no squareweb.app.
+      siteUrl: 'https://asilveira.com.br',
+    },
   },
 
   content: {

@@ -1,3 +1,33 @@
+<script lang="ts" setup>
+const { siteUrl } = useRuntimeConfig().public;
+const description = 'Desenvolvedor full-stack com base sólida em front-end.';
+
+useSeoMeta({
+  description,
+  ogTitle: 'André Silveira',
+  ogDescription: description,
+  ogType: 'profile',
+  ogUrl: siteUrl,
+  ogImage: { url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: 'André Silveira, desenvolvedor full-stack' },
+});
+
+useHead({
+  link: [{ rel: 'canonical', href: siteUrl }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'André Rufino M. Silveira',
+      alternateName: 'André Silveira',
+      jobTitle: 'Desenvolvedor full-stack',
+      url: siteUrl,
+      sameAs: ['https://www.github.com/andrrms', 'https://www.linkedin.com/in/andrrms'],
+    }),
+  }],
+});
+</script>
+
 <template>
   <div class="w-full *:px-4 md:*:px-0">
     <UiDivider />

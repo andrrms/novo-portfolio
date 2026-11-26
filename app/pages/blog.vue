@@ -2,6 +2,9 @@
 import UiCard from '~/components/Ui/UiCard.vue';
 
 const { data: content } = await useAsyncData(() => queryCollection('content').path('/blog').first());
+
+// Ainda é conteúdo de exemplo: fora dos buscadores e do sitemap até ter posts de verdade.
+useSeoMeta({ title: 'Blog', robots: 'noindex' });
 </script>
 
 <template>
