@@ -20,7 +20,7 @@ const BUTTONS: { file: string; alt: string; href?: string }[] = [
   { file: 'hotmail.gif', alt: 'MSN Hotmail' },
   { file: 'css.gif', alt: 'Made with Cascading Style Sheets' },
   { file: 'save-walter-white.gif', alt: 'Save Walter White', href: 'http://www.savewalterwhite.com/' },
-  { file: 'spotify.gif', alt: 'Spotify' },
+  { file: 'spotify.gif', alt: 'Spotify', href: 'https://open.spotify.com/user/andre_silveira07' },
   { file: 'nintendo-switch.png', alt: 'Nintendo Switch' },
   { file: 'winamp.gif', alt: 'Nullsoft Winamp' },
   { file: '1080p.gif', alt: '1920×1080, best 1080p' },
