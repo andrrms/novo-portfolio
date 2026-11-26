@@ -30,8 +30,6 @@ const totalTimeStr = computed(() => {
   return readableTimeStr(startDate, endDate);
 });
 
-const imageUrl = ref<string|null>(null);
-
 const imageModules = import.meta.glob('~/assets/images/*.*{png,jpg,jpeg,svg,gif}', {
   eager: true,
   query: '?url',
@@ -43,9 +41,7 @@ function getProcessedImageUrl(logoPath: string) {
   return imageModules[pathKey] as string || null;
 }
 
-onMounted(() => {
-  imageUrl.value = getProcessedImageUrl(props.company.logo);
-});
+const imageUrl = computed(() => getProcessedImageUrl(props.company.logo));
 </script>
 
 <template>
