@@ -12,7 +12,12 @@ useIntervalFn(() => {
   if (visibility.value === 'visible') refresh();
 }, 30_000);
 
-const now = useNow({ interval: 30_000 });
+// Sem scheduler, o useNow do VueUse 15 atualiza a cada quadro.
+const now = useNow({ scheduler: callback => useIntervalFn(callback, 30_000) });
+
+// O widget do Spotify pesa mais que o site inteiro: só entra quando a seção chega perto da tela.
+const playlistSlot = useTemplateRef<HTMLElement>('playlistSlot');
+const playlistNear = useElementVisibility(playlistSlot, { rootMargin: '400px', once: true });
 
 const time = computed(() => now.value.toLocaleTimeString('pt-BR', {
   hour: '2-digit',
@@ -85,13 +90,15 @@ const listened = computed(() => {
 
       <div v-if="playlist" class="select-none border-t border-foreground-muted p-4 md:border-t-0 md:border-l">
         <!-- Altura fixa reservada: o widget carrega depois e não empurra nada. -->
-        <iframe
-          :src="`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`"
-          title="Playlist no Spotify"
-          class="block h-[352px] w-full rounded-xl"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        />
+        <div ref="playlistSlot" class="h-[352px] rounded-xl bg-background-muted">
+          <iframe
+            v-if="playlistNear"
+            :src="`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`"
+            title="Playlist no Spotify"
+            class="block size-full rounded-xl"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          />
+        </div>
       </div>
     </div>
 
