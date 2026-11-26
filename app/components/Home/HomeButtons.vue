@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 /**
  * Faixa de botões 88×31 de ponta a ponta da tela, rolando sem parar. Passar o mouse num deles pausa a faixa,
- * acinzenta os outros e aumenta um pouco o escolhido. Com movimento reduzido, a faixa
- * fica parada e rola na mão.
+ * acinzenta os outros e aumenta um pouco o escolhido. Com movimento reduzido, a faixa para e os botões
+ * quebram em linhas, todos à vista.
  *
  * De madrugada, num computador, o botão "dark mode" (`lamp`) solta a cordinha da luminária (useLamp).
  * Enquanto a cordinha não desce, ele pisca como neon e ganha um "psst!" pichado em cima.
@@ -59,6 +59,23 @@ function kind(button: typeof BUTTONS[number]) {
 function onClick(button: typeof BUTTONS[number]) {
   if (kind(button) === 'button') cord.value = !cord.value;
 }
+
+/*
+ * Só a primeira cópia entra no Tab, e na maior parte da volta ela já passou pela esquerda da tela.
+ * Ao receber foco do teclado, a faixa volta até o botão focado ficar no meio (ela fica pausada enquanto
+ * tem foco). Só do teclado: o clique também foca, e a faixa andando sob o mouse perderia o clique.
+ */
+const marquee = useTemplateRef<HTMLElement>('marquee');
+
+function reveal(event: FocusEvent) {
+  const item = event.target instanceof Element && event.target.matches(':focus-visible') ? event.target.closest('li') : null;
+  const animation = marquee.value?.getAnimations()[0];
+  const duration = Number(animation?.effect?.getComputedTiming().duration);
+  if (!item || !animation || !marquee.value || !duration) return;
+  const lap = marquee.value.scrollWidth / 2;
+  const offset = Math.max(0, item.offsetLeft - (document.documentElement.clientWidth - item.offsetWidth) / 2);
+  animation.currentTime = (offset / lap) * duration;
+}
 </script>
 
 <template>
@@ -68,7 +85,7 @@ function onClick(button: typeof BUTTONS[number]) {
     O z-10 põe a faixa acima da hachura seguinte, que é posicionada e cobriria a parte de baixo do botão.
   -->
   <div class="relative z-10 w-full overflow-x-clip border-b border-foreground-muted px-0!">
-    <div class="marquee">
+    <div ref="marquee" class="marquee" @focusin="reveal">
       <!-- A volta se repete uma vez para o laço não ter emenda; só a primeira lista conta para leitores de tela. -->
       <ul v-for="copy in 2" :key="copy" class="track" :aria-hidden="copy === 2 ? 'true' : undefined">
         <li
@@ -176,13 +193,22 @@ function onClick(button: typeof BUTTONS[number]) {
   to { transform: translateX(-50%); }
 }
 
+/* Parada, só uma cópia de cada botão, em linhas: nada fica fora da tela. */
 @media (prefers-reduced-motion: reduce) {
   .marquee {
+    width: auto;
     animation: none;
   }
 
-  .marquee .track:last-child {
+  .marquee .track:last-child,
+  .track > [aria-hidden='true'] {
     display: none;
+  }
+
+  .track {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .button {
