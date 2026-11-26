@@ -3,6 +3,7 @@ import type { Position } from './ExperiencePosition.vue';
 
 const props = defineProps<{
   position: Position;
+  defaultOpen?: boolean;
 }>();
 
 const startDate = computed(() => (
@@ -28,15 +29,16 @@ const endDate = computed(() => (
 </script>
 
 <template>
-  <UiCollapsibleCard class="flex flex-col pb-5 group-last-of-type:pb-0">
+  <UiCollapsibleCard :default-open="defaultOpen" class="flex flex-col pb-5 group-last-of-type:pb-0">
     <template #trigger>
       <div class="group/trigger w-full flex flex-col gap-1">
-        <p class="text-primary text-lg font-medium group-hover/trigger:underline">{{ position.title }}</p>
+        <p class="text-lg font-medium group-hover/trigger:text-primary group-hover/trigger:underline">{{ position.title }}</p>
         <p class="text-foreground-accent text-sm">{{ startDate }} — {{ endDate }}</p>
       </div>
     </template>
 
     <div class="flex flex-col gap-2">
+      <p v-if="position.description">{{ position.description }}</p>
       <ul class="ps-4 list-outside list-disc">
         <li v-for="(responsibility, index) in position.responsibilities" :key="index">
           {{ responsibility }}

@@ -4,20 +4,17 @@ defineOptions({
 });
 
 interface UiCollapsibleCardProps {
-  open?: boolean;
+  /** Começa aberto. Já vem aberto do servidor, sem pular na tela ao carregar. */
+  defaultOpen?: boolean;
 }
 
 const props = withDefaults(defineProps<UiCollapsibleCardProps>(), {
-  open: false,
+  defaultOpen: false,
 });
 
-const isOpen = defineModel<boolean>('open', { default: false });
+const isOpen = ref(props.defaultOpen);
 const contentId = useId();
 const triggerId = useId();
-
-onMounted(() => {
-  isOpen.value = props.open;
-});
 
 function toggle() {
   isOpen.value = !isOpen.value;
@@ -42,6 +39,7 @@ function toggle() {
       :id="contentId"
       role="region"
       :aria-labelledby="triggerId"
+      :inert="!isOpen"
       :class="['collapsible-wrapper mt-3', { 'is-open': isOpen }]"
     >
       <div class="collapsible-content">

@@ -1,12 +1,20 @@
 @import "tailwindcss";
 
+/*
+ * Blueprint: azul de fundo, creme para texto e branco para destaques.
+ * Em hexadecimal porque o shader do topo lê estes valores direto do CSS.
+ */
 :root {
-	--background: oklch(42.246% 0.06396 64.55);
-	--background-muted: oklch(37.531% 0.05935 64.232);
-	--foreground: oklch(93.302% 0.06033 79.104);
-	--foreground-muted: oklch(59.43% 0.09086 76.861);
-	--foreground-accent: oklch(69.943% 0.07624 78.957);
-	--primary: oklch(85.804% 0.11565 78.125);
+	color-scheme: dark;
+
+	--background: #2438C6;
+	--background-muted: #1E2FA8;
+	--foreground: #F4EEDD;
+	--foreground-muted: #4152D2;
+	--foreground-accent: #C9CDEE;
+	--primary: #FFFFFF;
+	--primary-foreground: #1B2370;
+	--pattern-dot: #4C5DD8;
 
 	/* --background: #264E66;
 	--background-muted: #1D4257;
@@ -25,9 +33,15 @@
 	--color-foreground-muted: var(--foreground-muted);
 	--color-foreground-accent: var(--foreground-accent);
 	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
 
 	--font-sans: 'Inter', sans-serif;
 	--font-mono: 'IBM Plex Mono', monospace;
+}
+
+::selection {
+	background-color: var(--primary);
+	color: var(--background);
 }
 
 body {
@@ -40,7 +54,7 @@ body {
 
 @layer utilities {
 	.bg-dotted {
-		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 25%, transparent);
+		--pattern-foreground: var(--pattern-dot);
 
 		background-color: var(--background);
 		background-image: radial-gradient(var(--pattern-foreground) 1px, transparent 0);
@@ -48,7 +62,7 @@ body {
 	}
 
 	.bg-stripped {
-		--pattern-foreground: color-mix(in oklab, var(--color-foreground-muted) 56%, transparent);
+		--pattern-foreground: var(--color-foreground-muted);
 
 		background-color: var(--background);
 		background-image: repeating-linear-gradient(

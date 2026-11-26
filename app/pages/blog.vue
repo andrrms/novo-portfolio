@@ -2,8 +2,6 @@
 import UiCard from '~/components/Ui/UiCard.vue';
 
 const { data: content } = await useAsyncData(() => queryCollection('content').path('/blog').first());
-
-console.log(content.value?.body);
 </script>
 
 <template>
@@ -28,19 +26,19 @@ console.log(content.value?.body);
   @apply flex flex-col gap-4 text-foreground;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.content-renderer :is(h1, h2, h3, h4, h5, h6) {
   scroll-margin-top: 5rem;
 }
 
-h1 {
+.content-renderer h1 {
   @apply text-3xl font-extrabold font-mono;
 }
 
-p {
+.content-renderer p {
   @apply leading-snug;
 }
 
-p img {
+.content-renderer p img {
   @apply mx-auto rounded-md;
 }
 

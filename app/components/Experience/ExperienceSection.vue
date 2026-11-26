@@ -3,15 +3,18 @@ import jobs from '~/data/jobs.json';
 </script>
 
 <template>
-  <UiCard as="section" class="flex flex-col w-full">
-    <h2 class="w-full border-b border-foreground-muted text-xl font-mono font-extrabold text-primary ps-4 py-3">Experiências</h2>
-
+  <UiSection title="Experiências">
+    <UiSticker kind="badge" shape="square" icon="mdi:microphone-variant" color="#fff" background="#E85D9A" peel :size="76" :rotate="-8" top="7rem" offset="3.25rem" />
     <ul class="flex flex-col">
-      <li v-for="job in jobs" :key="job.company.name" class="ps-8 pe-4 py-3 not-first-of-type:border-t not-first-of-type:border-foreground-muted">
-        <ExperienceCompany
-          :company="job.company"
-          :positions="job.positions" />
+      <li v-for="(job, index) in jobs" :key="job.company.name">
+        <div v-if="index > 0" class="h-[30px] bg-stripped border-y border-foreground-muted" aria-hidden="true" />
+        <div class="ps-8 pe-4 py-3">
+          <ExperienceCompany
+            :company="job.company"
+            :positions="job.positions"
+            :expand-latest="index === 0" />
+        </div>
       </li>
     </ul>
-  </UiCard>
+  </UiSection>
 </template>

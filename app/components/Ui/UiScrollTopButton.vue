@@ -13,8 +13,8 @@ const isVisible = computed(() => y.value > 200);
     <button
       v-if="isVisible"
       @click="scrollToTop"
-      class="fixed flex items-center justify-center bottom-5 right-5 bg-background-muted text-foreground-muted border border-foreground-muted hover:bg-background-accent hover:text-foreground-accent p-3 rounded-full aspect-square transition-colors"
-      aria-label="Scroll to top"
+      class="fixed flex items-center justify-center bottom-5 right-5 bg-background-muted text-foreground-accent border border-foreground-muted hover:bg-background hover:text-foreground p-3 rounded-full aspect-square transition-colors"
+      aria-label="Voltar ao topo"
     >
       <Icon name="material-symbols:arrow-upward-rounded" size="1.5em" />
     </button>

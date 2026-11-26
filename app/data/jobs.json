@@ -1,7 +1,7 @@
 [
 	{
 		"company": {
-			"name": "Catálise Investimentos",
+			"name": "Catálise",
 			"website": "https://cataliseinvestimentos.com",
 			"logo": "logo-catalise.jpg",
 			"location": "Curitiba, PR (Remoto)",
@@ -9,14 +9,45 @@
 		},
 		"positions": [
 			{
+				"title": "Líder técnico",
+				"icon": "material-symbols:supervisor-account-outline-rounded",
+				"startDate": "2026-09-01",
+				"description": "Responsável técnico pelo front-end dos novos sistemas da empresa, desenvolvidos para substituir gradualmente a plataforma legada, trabalhando em proximidade com o time de back-end e participando ativamente do desenvolvimento.",
+				"responsibilities": [
+					"Liderança técnica do desenvolvimento front-end dos novos sistemas.",
+					"Definição de arquitetura, padrões, abordagens de implementação e direcionamento técnico do front-end.",
+					"Desenvolvimento hands-on de novas funcionalidades junto ao restante do time.",
+					"Trabalho próximo ao back-end na definição e integração de APIs e contratos entre as aplicações.",
+					"Revisão de código e apoio técnico aos desenvolvedores durante implementação e resolução de problemas.",
+					"Distribuição e acompanhamento de demandas, considerando prioridades, dependências e capacidade do time.",
+					"Participação em decisões técnicas e de produto relacionadas à evolução dos novos sistemas."
+				],
+				"tags": [
+					"Vue.js",
+					"Nuxt.js",
+					"TypeScript",
+					"Pinia",
+					"TailwindCSS",
+					"Arquitetura de front-end",
+					"Revisão de código",
+					"Integração de APIs",
+					"Liderança técnica"
+				]
+			},
+			{
 				"title": "Desenvolvedor Full-stack Pleno",
 				"startDate": "2024-04-01",
+				"endDate": "2026-09-01",
+				"description": "Atuação no desenvolvimento e evolução dos sistemas da empresa, inicialmente em melhorias e resolução de anomalias e, posteriormente, com foco crescente no desenvolvimento de novas funcionalidades, integrações e na construção da nova plataforma.",
 				"responsibilities": [
-					"Liderança técnica do time de Melhoria Contínua e Anomalias, gerenciando e implementando aprimoramentos de qualidade de vida no sistema.",
-					"Resolução de anomalias críticas para clientes internos e externos.",
-					"Desenvolvimento de novas funcionalidades de acordo com documentação de requisitos e alinhamentos com a parte cliente.",
-					"Automação de processos internos utilizando Jenkins, Pipefy e Workato.",
-					"Criação e desenvolvimento de um projeto front-end moderno, portando funcionalidades do sistema legado."
+					"Desenvolvimento de novas funcionalidades e melhorias nos sistemas da empresa.",
+					"Investigação e resolução de anomalias, principalmente durante o primeiro período da função.",
+					"Desenvolvimento de integrações entre sistemas internos, APIs e serviços externos.",
+					"Participação no levantamento, refinamento e implementação de novas demandas.",
+					"Automação de processos e evolução de ferramentas utilizadas internamente.",
+					"Participação no desenvolvimento do novo sistema criado para substituir a plataforma legada.",
+					"Atuação no front-end da nova plataforma em colaboração próxima com desenvolvedores de back-end.",
+					"Contribuição para decisões técnicas e para a estruturação inicial da nova aplicação."
 				],
 				"tags": [
 					"Vue.js",
@@ -34,15 +65,18 @@
 				]
 			},
 			{
-				"title": "Desenvolvedor Full-stack Júnior",
+				"title": "Desenvolvedor Full-stack Jr.",
 				"startDate": "2023-04-01",
 				"endDate": "2024-04-01",
+				"description": "Atuação generalista no desenvolvimento e sustentação dos sistemas da empresa, trabalhando em diferentes partes da aplicação e da operação conforme as necessidades do time.",
 				"responsibilities": [
 					"Desenvolvimento de novas funcionalidades e manutenção de sistemas legados e modernos.",
-					"Resolução de anomalias técnicas para garantir a estabilidade operacional.",
-					"Suporte técnico para clientes, auxiliando em integrações com a API da empresa.",
-					"Integração de sistemas com APIs externas de parceiros, como Bradesco e BTG Pactual.",
-					"Planejamento e execução de Gerenciamento de Mudanças (GMUDs) nos sistemas."
+					"Investigação e correção de problemas técnicos e operacionais.",
+					"Suporte técnico às áreas internas e acompanhamento de demandas.",
+					"Desenvolvimento e manutenção de integrações com APIs e sistemas internos e externos.",
+					"Integração com sistemas de instituições financeiras e parceiros.",
+					"Participação em automações e melhorias de processos internos.",
+					"Contato com diferentes partes da stack e do ciclo de desenvolvimento, do levantamento da demanda à entrega."
 				],
 				"tags": [
 					"PHP",

@@ -31,7 +31,8 @@
 					<a
 						href="https://github.com/andrrms"
 						target="_blank" rel="noopener noreferrer"
-						class="h-full inline-flex items-center justify-center aspect-square font-mono font-medium border-l border-foreground-muted text-primary hover:text-foreground-muted transition"
+						aria-label="GitHub"
+						class="h-full inline-flex items-center justify-center aspect-square font-mono font-medium border-l border-foreground-muted text-primary hover:text-foreground transition"
 					>
 						<Icon name="mdi:github" size="1.8em" />
 					</a>

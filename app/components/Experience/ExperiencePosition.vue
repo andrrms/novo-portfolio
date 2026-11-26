@@ -3,6 +3,8 @@ export interface Position {
   title: string;
   startDate: string;
   endDate?: string;
+  /** Parágrafo de abertura, antes da lista de responsabilidades. */
+  description?: string;
   responsibilities?: string[];
   tags?: string[];
   icon?: string;
@@ -10,6 +12,7 @@ export interface Position {
 
 const props = defineProps<{
   position: Position;
+  defaultOpen?: boolean;
 }>();
 </script>
 
@@ -23,6 +26,6 @@ const props = defineProps<{
       <div class="w-px h-full bg-foreground-muted group-last:hidden"></div>
     </div>
 
-    <ExperienceCollapsibleCard :position="props.position" />
+    <ExperienceCollapsibleCard :position="props.position" :default-open="defaultOpen" />
   </li>
 </template>

@@ -1,128 +1,72 @@
-<script lang="ts" setup>
-const { quoteOfTheDay } = useQuoteOfTheDay();
-</script>
-
 <template>
   <div class="w-full *:px-4 md:*:px-0">
-    <UiCard variant="dotted" class="h-[200px] grid place-items-center">
-      <pre class="text-foreground-muted select-none text-sm">{{ cowsay(quoteOfTheDay[0]?.q ?? 'Pensando...') }}</pre>
-    </UiCard>
+    <UiDivider />
 
-    <UiCard class="grid grid-cols-[auto_1fr]">
-      <!-- PFP Area -->
-      <div class="border-r border-foreground-muted h-full">
+    <UiCard class="relative grid sm:grid-cols-[auto_1fr]">
+      <UiSticker kind="badge" icon="mdi:emoticon-happy-outline" color="#1B1B1B" background="#F5C518" side="left" :size="88" :rotate="9" top="4.5rem" offset="4rem" />
+
+      <div class="flex justify-center border-b border-foreground-muted py-3 sm:block sm:border-b-0 sm:border-r sm:py-0">
         <div class="border border-foreground-muted rounded-full">
-          <img src="~/assets/images/eu.jpg" alt="Profile Picture" class="h-44 aspect-square rounded-full m-0.5" />
+          <img src="~/assets/images/eu.jpg" alt="" class="h-44 aspect-square rounded-full m-0.5" />
         </div>
       </div>
 
-      <!-- Info Area -->
-      <div class="flex flex-col justify-end">
-        <div class="w-full h-[120px] bg-background-muted overflow-hidden">
-          <p class="font-mono text-xs text-foreground-accent leading-tight p-1.5">
-            linux@andre:~$ git log --oneline -n 3<br>
-            <br>
-            d4f40a1 (HEAD -> main) feat: Implementar novo design de portfólio<br>
-            a1b9c3d (origin/main) refactor: Otimizar build de projetos<br>
-            c8e0f1a chore: Atualizar dependências de carreira<br>
-            <br>
-            linux@andre:~$ █
-          </p>
-        </div>
-        <h1 class="text-2xl text-primary font-bold border-t border-foreground-muted ps-3 py-0.5">André Rufino M. Silveira</h1>
-        <p class="text-foreground-accent text-sm border-t border-foreground-muted ps-3 py-0.5">Desenvolvedor full-stack com base sólida em front-end.</p>
-      </div>
-    </UiCard>
+      <div class="flex flex-col">
+        <h1 class="text-2xl font-bold px-3 pt-4 pb-3">
+          <UiChalkMark>André Rufino M. Silveira</UiChalkMark>
+        </h1>
+        <p class="text-foreground-accent text-sm border-y border-foreground-muted px-3 py-1">Desenvolvedor full-stack com base sólida em front-end.</p>
 
-    <UiDivider />
-
-    <UiCard class="flex flex-col w-full px-3 py-2 space-y-2">
-      <div class="flex items-center gap-3">
-        <div class="bg-background-muted rounded-sm p-1 inline-flex items-center justify-center">
-          <Icon name="material-symbols:code-rounded" size="1em" class="text-primary" />
-        </div>
-
-        <p class="text-primary">Desenvolvedor Full-stack Pleno</p>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <div class="bg-background-muted rounded-sm p-1 inline-flex items-center justify-center">
-          <Icon name="material-symbols:location-on-outline-rounded" size="1em" class="text-primary" />
-        </div>
-
-        <p class="text-primary">Campo Grande, MS - Brasil</p>
-      </div>
-
-      <!-- <div class="flex items-center gap-3">
-        <div class="bg-background-muted rounded-sm p-1 inline-flex items-center justify-center">
-          <Icon name="material-symbols:call-outline-rounded" size="1em" class="text-primary" />
-        </div>
-
-        <a href="tel:+5567991301333" class="text-primary hover:underline">+55 (67) 99130-1333</a>
-      </div> -->
-
-      <div class="flex items-center gap-3">
-        <div class="bg-background-muted rounded-sm p-1 inline-flex items-center justify-center">
-          <Icon name="material-symbols:mail-outline-rounded" size="1em" class="text-primary" />
-        </div>
-
-        <a href="mailto:pro.andresilveira@gmail.com" class="text-primary hover:underline">pro.andresilveira@gmail.com</a>
+        <ul class="flex flex-col gap-2 px-3 py-3">
+          <li class="flex items-center gap-3">
+            <Icon name="material-symbols:code-rounded" size="1.1em" class="text-primary shrink-0" />
+            Líder técnico
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="material-symbols:location-on-outline-rounded" size="1.1em" class="text-primary shrink-0" />
+            Campo Grande, MS - Brasil
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="material-symbols:mail-outline-rounded" size="1.1em" class="text-primary shrink-0" />
+            <a href="mailto:pro.andresilveira@gmail.com" class="underline underline-offset-3 hover:text-primary">pro.andresilveira@gmail.com</a>
+          </li>
+        </ul>
       </div>
     </UiCard>
 
     <UiDivider />
 
-    <UiCard class="flex flex-col gap-4 w-full">
-      <div class="grid grid-cols-2 gap-4">
-        <a
-          href="https://www.linkedin.com/in/andrrms"
-          target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 p-3 border-r border-foreground-muted"
-        >
-          <div class="rounded-md border border-foreground-muted inline-flex items-center justify-center">
-            <Icon name="mdi:linkedin" size="3em" class="text-primary" />
-          </div>
+    <UiCard class="relative flex flex-wrap justify-center gap-10 px-4 py-8">
+      <UiSticker kind="badge" shape="square" icon="mdi:album" color="#F4EEDD" background="#14161B" peel :size="84" :rotate="6" top="3rem" offset="5rem" />
 
-          <div class="w-full flex flex-col leading-tight">
-            <p class="text-primary font-medium group-hover:underline">LinkedIn</p>
-            <p class="text-foreground-accent text-sm">andrrms</p>
-          </div>
-
-          <Icon name="material-symbols:arrow-outward-rounded" size="1.5em" class="text-foreground-muted ml-auto" />
-        </a>
-
-        <a
-          href="https://www.github.com/andrrms"
-          target="_blank" rel="noopener noreferrer"
-          class="group flex items-center gap-3 p-3 border-l border-foreground-muted"
-        >
-          <div class="rounded-md border border-foreground-muted inline-flex items-center justify-center">
-            <Icon name="mdi:github" size="3em" class="text-primary" />
-          </div>
-
-          <div class="w-full flex flex-col leading-tight">
-            <p class="text-primary font-medium group-hover:underline">GitHub</p>
-            <p class="text-foreground-accent text-sm">andrrms</p>
-          </div>
-
-          <Icon name="material-symbols:arrow-outward-rounded" size="1.5em" class="text-foreground-muted ml-auto" />
-        </a>
-      </div>
+      <HomeStamp
+        href="https://www.linkedin.com/in/andrrms"
+        name="LinkedIn"
+        handle="andrrms"
+        icon="mdi:linkedin"
+        color="#0A66C2"
+        style="--rotate: -2deg"
+      />
+      <HomeStamp
+        href="https://www.github.com/andrrms"
+        name="GitHub"
+        handle="andrrms"
+        icon="mdi:github"
+        color="#181717"
+        style="--rotate: 1.5deg"
+      />
     </UiCard>
 
     <UiDivider />
 
-    <UiCard class="flex flex-col w-full">
-      <h2 class="w-full border-b border-foreground-muted text-xl font-mono font-extrabold text-primary ps-4 py-3">Sobre Mim</h2>
-
+    <UiSection title="Sobre Mim">
+      <UiSticker icon="mdi:star" color="#F5B700" :size="68" :rotate="16" top="0.25rem" offset="1.75rem" />
       <div class="p-4 space-y-3">
-        <p>Olá! Eu sou André Silveira — um desenvolvedor full-stack com uma base sólida em front-end e um forte foco em performance, código limpo e arquitetura eficiente.</p>
-        <p>Minha jornada autodidata me levou a especializar na construção de aplicações web rápidas e robustas. Como full-stack, tenho mais de 2 anos de experiência na Catálise Investimentos, onde atuo tanto no front-end com Vue.js (Nuxt 3, Pinia) e TailwindCSS, quanto no back-end com PHP.</p>
-        <p>Estou sempre explorando novas linguagens e tecnologias. Além do meu stack profissional, tenho grande afinidade com o ecossistema JavaScript, desenvolvendo projetos pessoais com React, Next.js e Node.js. Seja otimizando o back-end, construindo interfaces dinâmicas ou refatorando sistemas para escalabilidade, meu foco é transformar desafios complexos em experiências digitais elegantes.</p>
-        <p>Além do código, trago uma mentalidade estratégica — cada decisão que tomo visa apoiar os objetivos do negócio, as necessidades do usuário e a manutenibilidade do projeto a longo prazo.</p>
-        <p>Vamos construir algo de impacto?</p>
+        <p>Sou desenvolvedor full-stack e aprendi a programar sozinho. Desde 2023 trabalho na Catálise Investimentos, cuidando do front-end em Vue e Nuxt e do back-end em PHP.</p>
+        <p>Gosto de construir coisas complexas do jeito mais simples possível. Me importo MUITO com interface: acessibilidade, performance e os detalhes pequenos que quase ninguém nota (mas todo mundo sente).</p>
+        <p>Fora do trabalho, vivo começando projeto pessoal pra aprender coisa nova, quase sempre com Vue, React ou Node.</p>
       </div>
-    </UiCard>
+    </UiSection>
 
     <UiDivider />
 
@@ -130,8 +74,21 @@ const { quoteOfTheDay } = useQuoteOfTheDay();
 
     <UiDivider />
 
-    <UiCard class="flex items-center justify-center p-4">
-      <p class="font-mono text-sm text-primary cursor-default">Feito com &lt;3 por <abbr title="André Silveira">mim</abbr>. <!-- O código-fonte está disponível no GitHub. --></p>
+    <HomeNow />
+
+    <UiDivider />
+
+    <HomeGames />
+
+    <UiDivider />
+
+    <HomeButtons />
+
+    <UiDivider />
+
+    <UiCard class="relative flex items-center justify-center p-4">
+      <UiSticker icon="mdi:lightning-bolt" color="#FF7A1A" side="left" :size="64" :rotate="-18" top="0.25rem" offset="5.5rem" />
+      <p class="font-mono text-sm text-foreground-accent cursor-default">Feito com &lt;3 por <abbr title="André Silveira">mim</abbr>. <!-- O código-fonte está disponível no GitHub. --></p>
     </UiCard>
 
     <!-- <UiCard variant="stripped" class="flex items-center justify-center">
