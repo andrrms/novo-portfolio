@@ -12,21 +12,21 @@
         </svg>
       </UiUvMark>
 
-      <div class="flex justify-center border-b border-foreground-muted py-3 sm:block sm:border-b-0 sm:border-r sm:py-0">
+      <div class="flex justify-center border-b border-foreground-muted py-3 sm:items-center sm:border-b-0 sm:border-r sm:px-3">
         <div class="relative border border-foreground-muted rounded-full">
-          <img src="~/assets/images/eu.jpg" alt="" class="h-44 aspect-square rounded-full m-0.5" />
-          <!-- Em % da foto: os olhos ficam em 34% da altura e a boca em 48%. -->
+          <img src="~/assets/images/perfil.webp" alt="" class="h-44 aspect-square rounded-full m-0.5" />
+          <!-- Em % da foto: os olhos ficam em 41% da altura e a boca em 62%. -->
           <UiUvMark class="inset-0.5">
             <svg viewBox="0 0 100 100" class="size-full overflow-visible" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <g stroke="var(--color-uv-ink)" stroke-width="4.5">
-                <path d="M39 29 l10 10 M49 28.5 l-10 10.5 M53 27.5 l11.5 12 M64.5 28 l-11 11.5" />
-                <path d="M33 44 Q 51 49 70 42 Q 52 64 33 44 Z M69 45 v13" />
+                <path d="M36 36 l10 10 M46 35.5 l-10 10.5 M56 34.5 l11.5 12 M67.5 35 l-11 11.5" />
+                <path d="M33 59 Q 51 64 70 57 Q 52 79 33 59 Z M69 60 v13" />
               </g>
-              <path d="M39 29 l10 10 M49 28.5 l-10 10.5 M53 27.5 l11.5 12 M64.5 28 l-11 11.5" stroke="var(--color-uv-pink)" stroke-width="2.6" />
-              <path d="M33 44 Q 51 49 70 42 Q 52 64 33 44 Z" stroke="var(--color-uv-cyan)" stroke-width="2.2" />
-              <path d="M40 45 v6 M46 46 v8 M52 46.5 v8 M58 46 v7.5 M64 44.5 v5.5" stroke="var(--color-uv-cyan)" stroke-width="1.4" />
-              <path d="M69 45 v12" stroke="var(--color-uv-cyan)" stroke-width="2" />
-              <circle cx="69" cy="59" r="1.8" fill="var(--color-uv-cyan)" />
+              <path d="M36 36 l10 10 M46 35.5 l-10 10.5 M56 34.5 l11.5 12 M67.5 35 l-11 11.5" stroke="var(--color-uv-pink)" stroke-width="2.6" />
+              <path d="M33 59 Q 51 64 70 57 Q 52 79 33 59 Z" stroke="var(--color-uv-cyan)" stroke-width="2.2" />
+              <path d="M40 60 v6 M46 61 v8 M52 61.5 v8 M58 61 v7.5 M64 59.5 v5.5" stroke="var(--color-uv-cyan)" stroke-width="1.4" />
+              <path d="M69 60 v12" stroke="var(--color-uv-cyan)" stroke-width="2" />
+              <circle cx="69" cy="74" r="1.8" fill="var(--color-uv-cyan)" />
             </svg>
           </UiUvMark>
         </div>
