@@ -40,8 +40,9 @@ const LAP = [...BUTTONS, ...BUTTONS];
   <!--
     Foge da coluna de propósito e ocupa a largura toda, entre as hachuras.
     overflow-x: clip corta só nas laterais: o botão aumentado no hover pode passar da faixa.
+    O z-10 põe a faixa acima da hachura seguinte, que é posicionada e cobriria a parte de baixo do botão.
   -->
-  <div class="w-full overflow-x-clip border-b border-foreground-muted px-0!">
+  <div class="relative z-10 w-full overflow-x-clip border-b border-foreground-muted px-0!">
     <div class="marquee">
       <!-- A volta se repete uma vez para o laço não ter emenda; só a primeira lista conta para leitores de tela. -->
       <ul v-for="copy in 2" :key="copy" class="track" :aria-hidden="copy === 2 ? 'true' : undefined">
