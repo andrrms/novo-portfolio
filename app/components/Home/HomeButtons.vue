@@ -40,13 +40,19 @@ const LAP = [...BUTTONS, ...BUTTONS];
 
 const { cord } = useLamp();
 // Decidido depois de montar: depende da hora e do aparelho de quem visita, e o servidor não sabe.
+// Conferido de novo a cada minuto para acender à meia-noite com a página aberta.
 const awake = ref(false);
 onMounted(() => {
   awake.value = isLampAwake();
 });
+const visibility = useDocumentVisibility();
+useIntervalFn(() => {
+  if (visibility.value === 'visible') awake.value = isLampAwake();
+}, 60_000);
 
 function kind(button: typeof BUTTONS[number]) {
-  if (button.lamp && awake.value) return 'button';
+  // Com a cordinha descida, o botão continua funcionando depois das 5h para dar para recolher.
+  if (button.lamp && (awake.value || cord.value)) return 'button';
   return button.href ? 'a' : 'span';
 }
 
