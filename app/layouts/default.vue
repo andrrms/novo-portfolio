@@ -12,6 +12,8 @@
     </svg>
 
     <UiNavigationBar />
-    <slot />
+    <main class="w-full">
+      <slot />
+    </main>
   </div>
 </template>
