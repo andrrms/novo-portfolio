@@ -22,6 +22,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/tailwind.css'],
 
+  experimental: {
+    viewTransition: true,
+  },
+
   app: {
     head: {
       link: [

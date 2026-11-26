@@ -70,6 +70,10 @@
 
     <UiDivider />
 
+    <HomeProjects />
+
+    <UiDivider />
+
     <ExperienceSection />
 
     <UiDivider />

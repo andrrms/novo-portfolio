@@ -44,6 +44,11 @@
 	color: var(--background);
 }
 
+/* Reserva a barra de rolagem sempre: a largura não muda entre páginas curtas e longas. */
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	background-color: var(--background);
 	color: var(--foreground);
@@ -77,7 +82,7 @@ body {
 	}
 }
 
-/* Texto vindo do Nuxt Content. */
+/* Texto vindo do Nuxt Content (blog e projetos). */
 .content-renderer {
 	@apply flex flex-col gap-4 text-foreground;
 }
@@ -90,8 +95,20 @@ body {
 	@apply text-3xl font-extrabold font-mono;
 }
 
+.content-renderer h2 {
+	@apply mt-2 text-xl font-bold font-mono text-primary;
+}
+
 .content-renderer p {
 	@apply leading-snug;
+}
+
+.content-renderer ul {
+	@apply list-disc ps-5 space-y-1 leading-snug marker:text-foreground-accent;
+}
+
+.content-renderer :is(p, li) a {
+	@apply underline underline-offset-3 hover:text-primary;
 }
 
 .content-renderer p img {
@@ -104,4 +121,68 @@ body {
 
 .content-renderer pre + :last-child {
 	margin-bottom: 0;
+}
+
+/*
+ * Transição entre páginas (View Transitions do Nuxt). Cada parte do card de projeto tem o mesmo nome
+ * na página dele (utils/projectTransition.ts) e vai de um lugar ao outro. Curva do iOS.
+ */
+::view-transition-group(*) {
+	animation-duration: 400ms;
+	animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/*
+ * O conteúdo de cada parte troca rápido, enquanto a caixa dela ainda anda: a página antiga some logo,
+ * os textos não ficam duplicados, e a capa já mostra o desenho final em vez de saltar para ele no fim.
+ */
+::view-transition-old(*),
+::view-transition-new(*) {
+	animation-duration: 220ms;
+}
+
+/* A capa vira o fundo: as duas imagens preenchem a caixa que cresce, cortadas em vez de esticadas. */
+::view-transition-group(.project-cover) {
+	overflow: clip;
+}
+
+::view-transition-old(.project-cover),
+::view-transition-new(.project-cover) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Textos que mudam de quebra ou de cor trocam no tamanho natural, presos ao canto, sem esticar. */
+::view-transition-old(.project-description),
+::view-transition-new(.project-description),
+::view-transition-old(.project-tags),
+::view-transition-new(.project-tags),
+::view-transition-old(.project-host),
+::view-transition-new(.project-host) {
+	width: auto;
+	height: auto;
+}
+
+/* Teste (IMMERSIVE em pages/projetos/[slug].vue): a página do projeto assume as cores dele. */
+[data-project="orla"] {
+	--background: #102225;
+	--background-muted: #182c2f;
+	--foreground: #e8f1f3;
+	--foreground-muted: #3b4e51;
+	--foreground-accent: #97a7aa;
+	--primary: #5dcfdb;
+	--primary-foreground: #00181f;
+	--pattern-dot: #3b4e51;
+}
+
+[data-project="stalkr"] {
+	--background: #0a0a0a;
+	--background-muted: #262626;
+	--foreground: #fafafa;
+	--foreground-muted: #404040;
+	--foreground-accent: #a1a1a1;
+	--primary: #ff6fb8;
+	--primary-foreground: #0a0a0a;
+	--pattern-dot: #404040;
 }
