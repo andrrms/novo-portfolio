@@ -245,7 +245,8 @@ const GRIP_LINES = Array.from({ length: 12 }, (_, index) => index * 10);
         <rect x="300" y="270" width="400" height="140" fill="#fff" opacity=".04" />
 
         <!-- Rolos de fita e cubos -->
-        <g v-for="reel in [
+        <g
+v-for="reel in [
           { cx: HUB.left, r: leftRadius, angle: leftAngle },
           { cx: HUB.right, r: rightRadius, angle: rightAngle },
         ]" :key="reel.cx">
