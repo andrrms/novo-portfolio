@@ -1,4 +1,10 @@
-import tailwindcss from '@tailwindcss/vite'; 
+import { readdirSync } from 'node:fs';
+import tailwindcss from '@tailwindcss/vite';
+
+// Uma página por arquivo de content/projetos (content.config.ts).
+const projectRoutes = readdirSync(new URL('./content/projetos', import.meta.url))
+  .filter(file => file.endsWith('.md'))
+  .map(file => `/projetos/${file.slice(0, -3)}`);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -49,6 +55,15 @@ export default defineNuxtConfig({
     public: {
       // Base das URLs absolutas (canonical, og:image, sitemap). O app também responde no squareweb.app.
       siteUrl: 'https://asilveira.com.br',
+    },
+  },
+
+  nitro: {
+    prerender: {
+      // Pré-renderizadas, as páginas dos projetos chegam pela navegação com os dados prontos (_payload.json).
+      // Sem isso, o Nuxt Content baixaria um SQLite em WASM (~1 MB) no navegador para consultar o conteúdo.
+      // A lista da home vem de server/api/projetos.get.ts pelo mesmo motivo.
+      routes: projectRoutes,
     },
   },
 

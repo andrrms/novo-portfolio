@@ -4,19 +4,12 @@
  * O card inteiro leva à página do projeto, mas o link fica só no nome, para o leitor de tela anunciar só ele.
  * Cada parte do card tem o mesmo nome de transição da página: na troca, elas saem daqui para lá.
  */
-const { data } = await useAsyncData('projetos', () =>
-  queryCollection('projetos').order('order', 'ASC').select('path', 'stem', 'title', 'description', 'host', 'tags').all());
+// A lista só muda a cada deploy: guardada, a volta para a home não espera a rede.
+const { data } = await useFetch('/api/projetos', {
+  getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+});
 
 const projects = computed(() => data.value?.map(project => ({ ...project, slug: project.stem.replace('projetos/', '') })));
-
-// No navegador, o Nuxt Content baixa o banco na primeira consulta, e a transição para a página do
-// projeto esperava por isso com a tela parada. Com a intenção de abrir (ponteiro ou foco), ele já carrega.
-let warmed = false;
-function warm() {
-  if (warmed) return;
-  warmed = true;
-  queryCollection('projetos').select('path').first().catch(() => (warmed = false));
-}
 </script>
 
 <template>
@@ -26,8 +19,6 @@ function warm() {
         v-for="project in projects"
         :key="project.path"
         class="project relative p-4 border-foreground-muted not-last:border-b sm:not-last:border-b-0 sm:odd:border-r"
-        @pointerenter="warm"
-        @focusin="warm"
       >
         <div class="cover pointer-events-none relative isolate aspect-[40/21] overflow-hidden" :style="projectTransition(project.slug, 'cover')">
           <ProjectSignature :slug="project.slug" />
